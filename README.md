@@ -1,2 +1,3 @@
-# my-cmake-template
+# CMake template
+
 Repository template for CMake projects.
