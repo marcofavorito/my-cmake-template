@@ -21,26 +21,19 @@
 set (VENDOR_MODULE_PATH "${PROJECT_SOURCE_DIR}/vendor")
 
 # -------------------------------------------------------------------------
-# catch
-set (CATCH_MODULE_PATH "${VENDOR_MODULE_PATH}/Catch2")
-set (CATCH_INCLUDE_PATH "${CATCH_MODULE_PATH}/single_include/catch2")
-add_subdirectory(Catch2)
-list(APPEND CMAKE_MODULE_PATH ${CATCH_MODULE_PATH}/contrib)
-include(CTest)
-include(Catch)
+# Formatting library
+FetchContent_Declare(
+    fmtlib
+    GIT_REPOSITORY https://github.com/fmtlib/fmt.git
+    GIT_TAG 5.3.0)
+FetchContent_MakeAvailable(fmtlib)
 # -------------------------------------------------------------------------
 # -------------------------------------------------------------------------
-# spdlog
-set (SPDLOG_MODULE_PATH "${VENDOR_MODULE_PATH}/spdlog")
-set (SPDLOG_INCLUDE_PATH "${SPDLOG_MODULE_PATH}/include")
+# Logging library
+FetchContent_Declare(
+    spdloglib
+    GIT_REPOSITORY https://github.com/gabime/spdlog
+    GIT_TAG v1.12.0)
+FetchContent_MakeAvailable(spdloglib)
 # -------------------------------------------------------------------------
-
-#set variables
-set (VENDOR_INCLUDE_PATH ${SPDLOG_INCLUDE_PATH})
-
-#set variables for tests
-set (TEST_VENDOR_INCLUDE_PATH ${CATCH_INCLUDE_PATH})
-
-#export vars
-set (VENDOR_INCLUDE_PATH  ${VENDOR_INCLUDE_PATH} PARENT_SCOPE)
-set (TEST_VENDOR_INCLUDE_PATH  ${TEST_VENDOR_INCLUDE_PATH} PARENT_SCOPE)
+# -------------------------------------------------------------------------

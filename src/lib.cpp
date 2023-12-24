@@ -1,4 +1,3 @@
-#pragma once
 /*
  * This file is part of MyCMakeTemplate.
  *
@@ -16,6 +15,13 @@
  * along with MyCMakeTemplate.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include <my-cmake-template/version.h>
+#include <my-cmake-template/lib.hpp>
+
 namespace my_cmake_template {
-namespace lib1 {}
+
+    std::string get_version() {
+      return MY_CMAKE_TEMPLATE_VERSION;
+    }
+
 } // namespace my_cmake_template

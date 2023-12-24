@@ -15,4 +15,10 @@
 # along with MyCMakeTemplate.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-add_subdirectory(app1)
+set(MY_CMAKE_TEMPLATE_APP_NAME my-cmake-template-app CACHE INTERNAL "")
+
+add_executable(${MY_CMAKE_TEMPLATE_APP_NAME} main.cpp)
+target_compile_features(${MY_CMAKE_TEMPLATE_APP_NAME} PRIVATE cxx_std_17)
+
+target_link_libraries(${MY_CMAKE_TEMPLATE_APP_NAME} PRIVATE ${MY_CMAKE_TEMPLATE_LIB_NAME} fmt::fmt)
+target_include_directories(${MY_CMAKE_TEMPLATE_APP_NAME} PUBLIC ${PROJECT_INCLUDE_DIR} ${PROJECT_GENERATED_INCLUDE_DIR})

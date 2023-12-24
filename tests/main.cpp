@@ -15,8 +15,16 @@
  * along with MyCMakeTemplate.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <my_cmake_template/lib1.hpp>
+#include <catch2/catch_test_macros.hpp>
 
-namespace my_cmake_template {
-namespace lib1 {}
-} // namespace my_cmake_template
+#include <my-cmake-template/lib.hpp>
+
+
+namespace my_cmake_template::Test {
+
+TEST_CASE("Test example", "[lib]") {
+  auto version = get_version();
+  REQUIRE(version == "0.1.0.0");
+}
+
+} // namespace my_cmake_template::Test

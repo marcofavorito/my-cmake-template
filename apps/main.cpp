@@ -1,4 +1,3 @@
-#pragma once
 /*
  * This file is part of MyCMakeTemplate.
  *
@@ -16,6 +15,10 @@
  * along with MyCMakeTemplate.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace my_cmake_template {
-namespace lib2 {}
-} // namespace my_cmake_template
+#include <my-cmake-template/lib.hpp>
+#include <fmt/format.h>
+
+int main(int argc, char **argv) {
+  auto version = my_cmake_template::get_version();
+  fmt::print("Version: {} \n", version);
+}

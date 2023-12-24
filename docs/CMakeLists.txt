@@ -15,5 +15,8 @@
 # along with MyCMakeTemplate.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-add_subdirectory(lib1)
-add_subdirectory(lib2)
+set(DOXYGEN_EXTRACT_ALL YES)
+set(DOXYGEN_BUILTIN_STL_SUPPORT YES)
+
+doxygen_add_docs(docs modern/lib.hpp "${CMAKE_CURRENT_SOURCE_DIR}/main.md"
+    WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/include")
